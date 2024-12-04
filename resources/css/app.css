@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a {
+    color: blue;
+    margin: 10px;
+}
+
+/* called in the welcome.blade file. This is on every page*/
+#app {
+    background-color: grey;
+}
+
+/* called in the app.vue file. This is on every page */
+.app-vue-element {
+    background-color: aquamarine;
+    margin: 10px;
+}
+
+/* called in the singular components (overview, edit, etc..). Their content varies from page to page.*/
+.component-vue-element {
+    background-color: beige;
+}
