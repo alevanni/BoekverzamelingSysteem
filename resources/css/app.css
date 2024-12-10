@@ -22,3 +22,39 @@ a {
 .component-vue-element {
     background-color: beige;
 }
+
+.card {
+    padding: 20px;
+    text-align: justify;
+    border: 1px solid black;
+}
+
+.title {
+    font-size: larger;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.author {
+    text-align: center;
+    font-weight: bold;
+}
+.title::first-letter {
+    text-transform: capitalize;
+}
+
+.good {
+    background-color: green;
+}
+
+.meh {
+    background-color: yellow;
+}
+
+.bad {
+    background-color: red;
+}
+
+.to-review {
+    background-color: grey; ;
+}
