@@ -1,0 +1,4 @@
+1) the pages for authors and reviews should stay in another domain? With another store?
+2) when i create a new book, should i be able only select existing authors?
+3) i had to add a line into the tsconfig.json. How much of what happens there do I have to know?
+4) how much of the bash commands i used to create a new project do i have to know?

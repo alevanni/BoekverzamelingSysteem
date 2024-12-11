@@ -1,4 +1,8 @@
+<script setup lang="ts">
+import Form from '../components/Form.vue';
+const bookToEdit = {}
+</script>
+
 <template>
-    <h1 class="component-vue-element">Hello, here you can edit a book</h1>
-    
+    <Form></Form>
 </template>
