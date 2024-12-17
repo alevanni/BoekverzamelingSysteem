@@ -1,10 +1,14 @@
 import { ref, reactive } from 'vue';
 import axios from 'axios';
-
+/**
+ * @typedef { import("vue").Ref } Ref
+ */
 // Book-state
+/** @type { Ref } */
 const books = ref([]);
 
 //authors state
+/** @type { Ref } */
 const authors = ref([]);
 
 // The function that asks the backend for the books. 
@@ -31,9 +35,18 @@ export const getAllAuthors = () => authors.value;
 
 // ACTIONS
 
-export const addBook = async (/** @type {any} */ newBook) => {
+export const addBook = async ( /** @type {any} */ newBook ) => {
     //axios post request here
-    const { data } = await axios.post('api/books/create', newBook);
-    console.log(data);
+  
+        const { data } = await axios.post('api/books/create', newBook);
+        if ( !data ) return;
+        else return data;
+ 
 }
 
+export const deleteBook = async (/** @type {any} */ book) => {
+   //axios delete request here
+   const { data } = await axios.delete('api/books/{id}',  {params: {'id': book} });
+   if ( !data ) return;
+   else return data;
+}

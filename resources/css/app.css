@@ -76,3 +76,17 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #45a049;
 }
+
+.errors {
+    padding: 20px;
+}
+.validation-error {
+    margin: 20px;
+    list-style-type:  "\1f6a9";
+    
+}
+
+.delete{
+    border: 1px solid black;
+    padding: 5px;
+}
