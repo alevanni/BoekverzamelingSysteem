@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { fetchAuthors, getAllAuthors } from '../store';
+import { fetchAuthors, getAllAuthors } from '../../authors/store';
 const props = defineProps(['book']);
 const bookCopy = ref({...props.book});
 fetchAuthors();

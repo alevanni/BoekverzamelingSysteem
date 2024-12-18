@@ -1,12 +1,17 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-        "outDir": "dist",
         "module": "esnext",
         "target": "esnext",
-        "types": ["vite/client", "node"],
+        "types": [
+            "vite/client",
+            "node"
+        ],
         "moduleResolution": "node",
-        "lib": ["es2017", "dom"],
+        "lib": [
+            "es2017",
+            "dom"
+        ],
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
         "declaration": true,
@@ -20,5 +25,7 @@
         "jsx": "preserve",
         "resolveJsonModule": true
     },
-    "include": ["resources/js/**/*"]
+    "include": [
+        "resources/js/**/*"
+    ]
 }
