@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BookCard from './BookCard.vue';
 const props = defineProps(['books']);
-//console.log(props.books);
+
 </script>
 
 <template>

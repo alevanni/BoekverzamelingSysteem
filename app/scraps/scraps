@@ -13,3 +13,10 @@ $average_vote += $review->vote;
 }
 $average_vote = round($average_vote / count($reviews), 2);
 } else $average_vote = -1;
+
+<ul class="errors">
+    <li v-for="(error, key) in errors">{{ key }}:
+
+    <li class="validation-error" v-for="item in error">{{ item }}</li>
+    </li>
+</ul>

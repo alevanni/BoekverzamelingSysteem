@@ -1,3 +1,6 @@
+- if I put fetch authors in the for, it gives me errors from editbok but not from vreatebook. it adds part of the url to the request url. Why?
+
+
 1) the pages for authors and reviews should stay in another domain? With another store?
 2) when i create a new book, should i be able only select existing authors?
 3) i had to add a line into the tsconfig.json. How much of what happens there do I have to know?

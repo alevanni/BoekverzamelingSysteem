@@ -6,9 +6,9 @@ const authors = ref<Author[]>([]);
 
 
 export const fetchAuthors = async () => {
-    const { data } = await axios.get('api/authors');
+    const { data } = await axios.get('http://localhost:8000/api/authors');
     if (!data) return;
-    //console.log(data);
+    console.log(data);
     authors.value = data;
 }
 

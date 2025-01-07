@@ -6,7 +6,7 @@ import Create from '../domains/books/pages/Create.vue'
 const routes = [
     { path: '/', component: Overview },
     { path: '/createbook', component: Create },
-    { path: '/editbook', component: EditBook },
+    { path: '/editbook/:id', name: 'editBook', component: EditBook },
 ]
 
 const router = createRouter({

@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { fetchAuthors, getAllAuthors } from '../../authors/store';
 const props = defineProps(['book']);
 const bookCopy = ref({...props.book});
-fetchAuthors();
+//fetchAuthors(); IT GIVES PROBLEMS. WHY???
 const emit = defineEmits(['bookSubmit']);
 
 const submitForm = () => {
@@ -24,7 +24,7 @@ const submitForm = () => {
         </td></tr>
          <tr> <td><label for="title">Title</label></td> <td><input v-model=bookCopy.title id="title" type="text" ></td></tr>
          <tr> <td><label for="plot">Plot</label></td> <td><input v-model=bookCopy.plot id="plot" type="textarea" style="height:200px; width:400px" ></td></tr>
-         <tr><td><label for="submit">Submit</label></td><td><input id="submit" type="submit" :value=" book.title == '' ? 'Add book' : 'Edit Book' "></td></tr>
+         <tr><td><label for="submit">Submit</label></td><td><input id="submit" type="submit" :value=" bookCopy.title == '' ? 'Add book' : 'Edit Book' "></td></tr>
        </table>
 
     </form>
