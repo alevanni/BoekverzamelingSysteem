@@ -1,19 +1,25 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import Form from '../components/Form.vue';
-import { getBookById, updateBook } from '../store';
+import BookForm from '../components/BookForm.vue';
+import { fetchBooks, getBookById, updateBook } from '../store';
 import { Book } from '../../types';
 import { router } from '../../../router';
 import axios from 'axios';
 import { ref, Ref } from 'vue';
-const bookToEdit = ref(getBookById(+useRoute().params.id));
-const errors: Ref<{}> = ref({});
+import { fetchAuthors } from '../../authors/store';
 
+fetchBooks();
+fetchAuthors();
+
+const bookToEdit = getBookById(+useRoute().params.id);
+
+
+const errors = ref<Ref<{}>>();
 
 const editBook = async ( book: Book ) => {
     try {
          await updateBook(book);
-         router.go(0);
+         router.push('/');
     }
     catch (error) {
         if (axios.isAxiosError(error)) {
@@ -28,5 +34,5 @@ const editBook = async ( book: Book ) => {
 </script>
 
 <template>
-    <Form :book="bookToEdit" @book-submit="editBook"></Form>
+    <BookForm v-if="bookToEdit" :book="bookToEdit" @book-submit="editBook"></BookForm>
 </template>

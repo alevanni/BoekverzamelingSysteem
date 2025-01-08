@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::with('author', 'reviews')->orderBy('created_at', 'desc')->get();
+        $books = Book::with('reviews', 'author')->orderBy('created_at', 'desc')->get();
         return BookResource::collection($books);
     }
 
@@ -33,8 +33,11 @@ class BookController extends Controller
     public function store(StoreBookRequest $request)
     {
         $validated = $request->validated();
-        $newBook = Book::create($validated);
-        return $newBook;
+        Book::create($validated);
+
+        $books = Book::with('reviews')->orderBy('created_at', 'desc')->get();
+
+        return BookResource::collection($books);
     }
 
     /**
@@ -58,10 +61,13 @@ class BookController extends Controller
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        echo 'update';
         $validated = $request->validated();
+
         $book->update($validated);
-        return $validated;
+
+        $books = Book::with('reviews')->orderBy('created_at', 'desc')->get();
+
+        return BookResource::collection($books);
     }
 
     /**
@@ -69,9 +75,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //echo 'destroy';
-        $success = $book->delete();
-        echo $success;
-        return response($success);
+        $book->delete();
+        $books = Book::with('reviews')->orderBy('created_at', 'desc')->get();
+        return BookResource::collection($books);
     }
 }

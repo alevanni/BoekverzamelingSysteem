@@ -1,12 +1,18 @@
 import { createWebHistory, createRouter } from 'vue-router'
-import Overview from '../domains/books/pages/Overview.vue'
+import BooksOverview from '../domains/books/pages/BooksOverview.vue'
 import EditBook from '../domains/books/pages/EditBook.vue'
-import Create from '../domains/books/pages/Create.vue'
+import CreateBook from '../domains/books/pages/CreateBook.vue'
+import AuthorsOverview from '../domains/authors/pages/AuthorsOverview.vue'
+import CreateAuthor from '../domains/authors/pages/CreateAuthor.vue'
+import EditAuthor from '../domains/authors/pages/EditAuthor.vue'
 
 const routes = [
-    { path: '/', component: Overview },
-    { path: '/createbook', component: Create },
+    { path: '/', component: BooksOverview },
+    { path: '/authors', component: AuthorsOverview },
+    { path: '/createbook', component: CreateBook },
+    { path: '/createauthor', component: CreateAuthor },
     { path: '/editbook/:id', name: 'editBook', component: EditBook },
+    { path: '/editauthor/:id', name: 'editAuthor', component: EditAuthor },
 ]
 
 const router = createRouter({

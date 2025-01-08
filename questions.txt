@@ -1,4 +1,4 @@
-- if I put fetch authors in the for, it gives me errors from editbok but not from vreatebook. it adds part of the url to the request url. Why?
+- if I put fetch authors in the form, it gives me errors from editbok but not from createbook. it adds part of the url to the request url. Why?
 
 
 1) the pages for authors and reviews should stay in another domain? With another store?

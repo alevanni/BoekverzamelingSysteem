@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { ref }  from 'vue'
-import type { Ref } from 'vue'
-import axios from 'axios';
-import { addBook } from '../store';
+import { ref, Ref } from 'vue';
 import { router } from '../../../router';
-import Form from '../components/Form.vue';
-const newBook = ref({author_id:"", title: "", plot: "" });
-const errors: Ref<{}> = ref({});
-//{title: string[], plot: string[], author_id: string[] } = {title: [], plot: [], author_id: []};
+import axios from 'axios';
+import { addAuthor } from '../store';
+import AuthorForm from '../components/AuthorForm.vue';
+const newAuthor = ref({name: ''});
 
-const submitBook = async ( book: any ) => {
+const errors: Ref<{}> = ref({});
+
+const submitAuthor = async( author: any) => {
     try {
-         await addBook(book);
+         await addAuthor(author);
         
         
          router.push('/');
@@ -29,8 +28,9 @@ const submitBook = async ( book: any ) => {
 </script>
 
 <template>
-    <Form :book="newBook" @book-submit="submitBook"></Form>
-    <ul class="errors">
+<h1>Create here a new author</h1>
+<AuthorForm :author="newAuthor" @authorSubmit="submitAuthor"></AuthorForm>
+<ul class="errors">
         <li  v-for="(error, key) in errors">{{ key }}: 
 
             <li class="validation-error" v-for="item in error">{{ item }}</li>

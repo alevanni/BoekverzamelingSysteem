@@ -11,9 +11,9 @@ const books = ref<Book[]>([]);
 // web.php (the laravel routing). The controller will not return a view (this is vue's job), just the data.
 
 export const fetchBooks = async () => {
-    const { data } = await axios.get('http://localhost:8000/api/books');
+    const { data } = await axios.get('/api/books');
     if (!data) return;
-    console.log(data);
+    console.log('fetchbooks');
     books.value = data;
 }
 
@@ -21,13 +21,13 @@ export const fetchBooks = async () => {
 // GETTERS
 export const getAllBooks = () => books.value;
 
-export const getBookById = (id: number) => computed( () => books.value.find( book => book.id == id ));
+export const getBookById = (id: number) => computed(() => books.value.find(book => book.id == id));
 // ACTIONS
 
 export const addBook = async (newBook: any) => {
     //axios post request here
 
-    const { data } = await axios.post('http://localhost:8000/api/books/create', newBook);
+    const { data } = await axios.post('/api/books/create', newBook);
     if (!data) return;
     else return data;
 
@@ -36,7 +36,7 @@ export const addBook = async (newBook: any) => {
 export const deleteBook = async (book: Book) => {
 
     //axios delete request here
-    const { data } = await axios.delete(`http://localhost:8000/api/books/${book.id}`);
+    const { data } = await axios.delete(`/api/books/${book.id}`);
     if (!data) return;
     //console.log(data);
     return data;
@@ -44,8 +44,9 @@ export const deleteBook = async (book: Book) => {
 
 export const updateBook = async (bookToEdit: Book) => {
     //axios update request here
-    const { data } = await axios.put(`http://localhost:8000/api/books/${bookToEdit.id}`, bookToEdit);
+    const { data } = await axios.put(`/api/books/${bookToEdit.id}`, bookToEdit);
+
     if (!data) return;
-    console.log(data);
-    return data;
+
+    books.value = data;
 }

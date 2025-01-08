@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getAllBooks } from '../store';
+import { fetchBooks, getAllBooks } from '../store';
 import BooksTable from '../components/BooksTable.vue';
+import { fetchAuthors } from '../../authors/store';
 
+
+fetchBooks();
+fetchAuthors();
 
 </script>
 

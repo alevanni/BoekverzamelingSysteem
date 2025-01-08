@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BookCard from './BookCard.vue';
-const props = defineProps(['books']);
+defineProps(['books']);
 
 </script>
 
