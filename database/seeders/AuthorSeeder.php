@@ -13,6 +13,7 @@ class AuthorSeeder extends Seeder
      */
     public function run(): void
     {
+        Author::create(['name' => 'anonymous']);
         Author::factory()->count(30)->create();
     }
 }

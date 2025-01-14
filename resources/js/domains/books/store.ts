@@ -13,7 +13,7 @@ const books = ref<Book[]>([]);
 export const fetchBooks = async () => {
     const { data } = await axios.get('/api/books');
     if (!data) return;
-    console.log('fetchbooks');
+    //console.log('fetchbooks');
     books.value = data;
 }
 

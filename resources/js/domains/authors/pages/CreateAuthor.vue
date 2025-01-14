@@ -4,7 +4,7 @@ import { router } from '../../../router';
 import axios from 'axios';
 import { addAuthor } from '../store';
 import AuthorForm from '../components/AuthorForm.vue';
-const newAuthor = ref({name: ''});
+const newAuthor = ref({name: ""});
 
 const errors: Ref<{}> = ref({});
 
@@ -36,4 +36,5 @@ const submitAuthor = async( author: any) => {
             <li class="validation-error" v-for="item in error">{{ item }}</li>
         </li>
     </ul>
+
 </template>

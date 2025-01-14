@@ -4,7 +4,7 @@ import type { Ref } from 'vue'
 import axios from 'axios';
 import { addBook } from '../store';
 import { router } from '../../../router';
-import Form from '../components/BookForm.vue';
+import BookForm from '../components/BookForm.vue';
 const newBook = ref({author_id:"", title: "", plot: "" });
 const errors: Ref<{}> = ref({});
 
@@ -29,7 +29,7 @@ const submitBook = async ( book: any ) => {
 </script>
 
 <template>
-    <Form :book="newBook" @book-submit="submitBook"></Form>
+    <BookForm :book="newBook" @bookSubmit="submitBook"></BookForm>
     <ul class="errors">
         <li  v-for="(error, key) in errors">{{ key }}: 
 
