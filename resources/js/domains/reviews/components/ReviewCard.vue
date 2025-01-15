@@ -5,7 +5,7 @@ import { fetchAuthors, getAuthorById } from "../../authors/store";
 import { router } from "../../../router/index";
 import axios from "axios";
 import { Ref, ref } from "vue";
-const props = defineProps<{ review: Review }>();
+defineProps<{ review: Review }>();
 
 
 </script>

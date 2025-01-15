@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Http\Resources\ReviewResource;
+use App\Http\Requests\StoreReviewRequest;
+use App\Models\Book;
 
 class ReviewController extends Controller
 {
@@ -29,9 +31,13 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreReviewRequest $request)
     {
-        //
+        $validated = $request->validated();
+        Review::create($validated);
+        $reviews = Review::where('book_id', $request->book_id);
+
+        return ReviewResource::collection($reviews);
     }
 
     /**

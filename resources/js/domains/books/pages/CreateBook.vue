@@ -13,7 +13,6 @@ const submitBook = async ( book: any ) => {
     try {
          await addBook(book);
         
-        
          router.push('/');
     }
     catch (error) {

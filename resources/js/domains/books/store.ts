@@ -1,6 +1,6 @@
-import { ref, reactive, computed } from 'vue';
+import { ref, computed } from 'vue';
 import axios from 'axios';
-import { Book, Author } from '../types';
+import { Book } from '../types';
 
 const books = ref<Book[]>([]);
 
@@ -25,11 +25,10 @@ export const getBookById = (id: number) => computed(() => books.value.find(book 
 // ACTIONS
 
 export const addBook = async (newBook: any) => {
-    //axios post request here
-
     const { data } = await axios.post('/api/books/create', newBook);
     if (!data) return;
-    else return data;
+
+    books.value = data
 
 }
 
@@ -39,7 +38,8 @@ export const deleteBook = async (book: Book) => {
     const { data } = await axios.delete(`/api/books/${book.id}`);
     if (!data) return;
     //console.log(data);
-    return data;
+    books.value = data
+
 }
 
 export const updateBook = async (bookToEdit: Book) => {

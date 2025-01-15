@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { Review } from '../../types';
 import ReviewCard from './ReviewCard.vue';
-const reviews = defineProps(['reviews']);
+const { reviews } = defineProps<{ reviews: Review[] }>();
 
 </script>
 

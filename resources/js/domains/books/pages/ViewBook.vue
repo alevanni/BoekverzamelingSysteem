@@ -7,22 +7,23 @@ import { router } from '../../../router';
 import axios from 'axios';
 import { ref, Ref } from 'vue';
 import { fetchAuthors, getAuthorById } from '../../authors/store';
-import { fetchReviews, getReviewsByBookId } from '../../reviews/store';
+import { fetchReviews, getReviewsByBookId, getAllReviews } from '../../reviews/store';
 fetchBooks();
 fetchAuthors();
 fetchReviews();
 const book = getBookById(+useRoute().params.id);
 
-//const reviews = getReviewsByBookId(book.value.id);
+
 
 </script>
 
 <template>
     <div class="book" v-if="book">
         <h2 class="title">{{ book.title }}</h2>
-        <h2 class="author">{{ getAuthorById(book.id).value.name }}</h2>
+        <h2 class="author">Written by: {{ getAuthorById(book.id).value.name }}</h2>
         <p>{{ book.plot }}</p>
-        <ReviewTable v-if="getReviewsByBookId(book.id)" :reviews="getReviewsByBookId(book.id)">
+        <RouterLink :to="{name: 'createReview', params: { bookid: book.id}}">Add a new review</RouterLink>
+        <ReviewTable :reviews="getReviewsByBookId(book.id).value">
         </ReviewTable>
     </div>
 
