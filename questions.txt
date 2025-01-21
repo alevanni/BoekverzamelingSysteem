@@ -1,3 +1,8 @@
+- should i put the delete and edit buttons also in the book page?
+- it does not capitalize the first letter in the book overview, why??
+- should i make an overview of the books depending of the authors?
+- why some events can be written like this @book-submit instead of the real name??
+----------------------------------------------------------------------------------
 - if I put fetch authors in the form, it gives me errors from editbok but not from createbook. it adds part of the url to the request url. Why?
 
 

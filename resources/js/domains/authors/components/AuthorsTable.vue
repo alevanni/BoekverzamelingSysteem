@@ -5,8 +5,9 @@ defineProps(['authors']);
 </script>
 
 <template>
-<div class="card" v-for="author in authors" :key="author.id">
-    <AuthorCard :author="author"></AuthorCard>
-    
-</div>
+    <div class="table">
+        <div class="card" v-for="author in authors" :key="author.id">
+            <AuthorCard :author="author"></AuthorCard>
+        </div>
+    </div>
 </template>

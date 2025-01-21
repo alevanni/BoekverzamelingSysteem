@@ -18,13 +18,15 @@ Route::get('reviews', [ReviewController::class, 'index']);
 // POST REQUESTS
 Route::post('books/create', [BookController::class, 'store']);
 Route::post('authors/create', [AuthorController::class, 'store']);
-Route::post('reviews/create/{book}', [ReviewController::class, 'store']);
+Route::post('reviews/create', [ReviewController::class, 'store']);
 
 
 // DELETE REQUESTS
 Route::delete('books/{book}', [BookController::class, 'destroy']);
 Route::delete('authors/{author}', [AuthorController::class, 'destroy']);
+Route::delete('reviews/{review}', [ReviewController::class, 'destroy']);
 
 // PUT REQUESTS
 Route::put('books/{book}', [BookController::class, 'update']);
 Route::put('authors/{author}', [AuthorController::class, 'update']);
+Route::put('reviews/{review}', [ReviewController::class, 'update']);

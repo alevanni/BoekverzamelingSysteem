@@ -24,7 +24,7 @@ class StoreReviewRequest extends FormRequest
         return [
             'vote' => 'required',
             'body' => 'required|min:30|max:200',
-            'book_id' => 'required'
+            'book_id' => 'required',
         ];
     }
 }

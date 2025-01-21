@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { deleteBook } from "../store";
 import { Book } from "../../types";
-import { fetchAuthors, getAuthorById } from "../../authors/store";
+import { getAuthorById } from "../../authors/store";
 import { router } from "../../../router/index";
-import axios from "axios";
-import { Ref, ref } from "vue";
+
 const props = defineProps<{ book: Book }>();
 
 const removeBook = async (book: Book) => {
@@ -18,7 +17,7 @@ const removeBook = async (book: Book) => {
     <RouterLink :to="{ name: 'viewBook', params: { id: book.id } }">
         <h2 class="title">{{ book.title }}</h2>
     </RouterLink>
-    <h2 class="author">by: {{ getAuthorById(book.author_id).value.name }}</h2>
+    <h2>by: <span class="author">{{ getAuthorById(book.author_id).value.name }} </span></h2>
     <p>
         {{ book.plot }}
     </p>

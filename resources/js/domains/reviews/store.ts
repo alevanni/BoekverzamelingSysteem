@@ -25,9 +25,26 @@ export const getReviewsByBookId = (id: number) =>
 
 export const addReview = async (review: any) => {
     // axios post request here
-    //console.log(review);
-    const { data } = await axios.post(`/api/reviews/create/${review.book_id}`, review);
+    const { data } = await axios.post("/api/reviews/create/", review);
+    if (!data) return;
+    reviews.value = data;
+};
+
+export const deleteReview = async (review: Review) => {
+    // axios delete request here
+    const { data } = await axios.delete(`/api/reviews/${review.id}`);
     if (!data) return;
     //console.log(data);
     reviews.value = data;
-}
+};
+
+export const updateReview = async (reviewToEdit: Review) => {
+    // axios put request here
+    const { data } = await axios.put(
+        `/api/reviews/${reviewToEdit.id}`,
+        reviewToEdit
+    );
+    if (!data) return;
+    //console.log(data);
+    reviews.value = data;
+};

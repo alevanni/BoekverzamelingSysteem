@@ -6,6 +6,7 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Http\Resources\ReviewResource;
 use App\Http\Requests\StoreReviewRequest;
+use App\Http\Requests\UpdateReviewRequest;
 use App\Models\Book;
 
 class ReviewController extends Controller
@@ -34,8 +35,10 @@ class ReviewController extends Controller
     public function store(StoreReviewRequest $request)
     {
         $validated = $request->validated();
-        Review::create($validated);
-        $reviews = Review::where('book_id', $request->book_id);
+
+        $review = Review::create($validated);
+
+        $reviews = Review::all(); //$review->book->reviews;
 
         return ReviewResource::collection($reviews);
     }
@@ -59,16 +62,23 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateReviewRequest $request, Review $review)
     {
-        //
+        $validated = $request->validated();
+
+        $review->update($validated);
+        $reviews = Review::all();
+        return ReviewResource::collection($reviews);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Review $review)
     {
-        //
+        $review->delete();
+        $reviews = Review::all();
+
+        return ReviewResource::collection($reviews);
     }
 }

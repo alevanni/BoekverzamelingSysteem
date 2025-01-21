@@ -5,8 +5,11 @@ defineProps(['books']);
 </script>
 
 <template>
-<div class="card" v-for="book in books" :key="book.id">
-    <BookCard :book="book"></BookCard>
-    
-</div>
+    <div class="table">
+        <div class="card" v-for="book in books" :key="book.id">
+            <BookCard :book="book"></BookCard>
+
+        </div>
+    </div>
+
 </template>

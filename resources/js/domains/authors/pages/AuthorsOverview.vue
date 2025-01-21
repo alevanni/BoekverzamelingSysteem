@@ -6,6 +6,9 @@ fetchAuthors();
 
 
 <template>
-    <h1 class="component-vue-element">Hello, this is the overview of the authors</h1>
-    <AuthorsTable :authors="getAllAuthors()"></AuthorsTable>
+    <div class="component-vue-element">
+        <h1>Hello, this is the overview of the authors</h1>
+        <AuthorsTable :authors="getAllAuthors()"></AuthorsTable>
+    </div>
+
 </template>

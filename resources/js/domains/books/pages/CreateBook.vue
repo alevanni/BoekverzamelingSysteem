@@ -1,38 +1,23 @@
 <script setup lang="ts">
-import { ref }  from 'vue'
-import type { Ref } from 'vue'
-import axios from 'axios';
+import { ref } from 'vue'
 import { addBook } from '../store';
 import { router } from '../../../router';
 import BookForm from '../components/BookForm.vue';
-const newBook = ref({author_id:"", title: "", plot: "" });
-const errors: Ref<{}> = ref({});
+const newBook = ref({ author_id: "", title: "", plot: "" });
 
 
-const submitBook = async ( book: any ) => {
-    try {
-         await addBook(book);
-        
-         router.push('/');
-    }
-    catch (error) {
-        if (axios.isAxiosError(error)) {
-            //console.log(error.response?.data.errors);
-            errors.value = {...error.response?.data.errors};
-            //console.log(errors);
-        }
-       
-        
-    }
+
+const submitBook = async (book: any) => {
+
+    await addBook(book);
+
+    router.push('/');
+
+
 }
 </script>
 
 <template>
     <BookForm :book="newBook" @bookSubmit="submitBook"></BookForm>
-    <ul class="errors">
-        <li  v-for="(error, key) in errors">{{ key }}: 
 
-            <li class="validation-error" v-for="item in error">{{ item }}</li>
-        </li>
-    </ul>
 </template>

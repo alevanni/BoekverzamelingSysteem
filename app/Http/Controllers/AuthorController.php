@@ -34,7 +34,6 @@ class AuthorController extends Controller
      */
     public function store(StoreAuthorRequest $request)
     {
-        echo 'controller';
         $validated = $request->validated();
         Author::create($validated);
         $authors = Author::all();

@@ -1,17 +1,18 @@
 <template>
-    <nav class="app-vue-element">
-      <RouterLink to="/">Overview of books</RouterLink>
-    
-      <RouterLink to="/createbook">Create a new book</RouterLink>
+  <nav class="app-vue-element app-nav">
+    <RouterLink to="/">Overview of books</RouterLink>
 
-      <RouterLink to="/authors">Authors</RouterLink>
+    <RouterLink to="/createbook">Create a new book</RouterLink>
 
-      <RouterLink to="/createauthor">Create a new author</RouterLink>
-    </nav>
+    <RouterLink to="/authors">Authors</RouterLink>
 
-    <h1 class="app-vue-element">Hello World! Book collection system</h1>
-    
-    <main>
-      <RouterView />
-    </main>
+    <RouterLink to="/createauthor">Create a new author</RouterLink>
+  </nav>
+
+
+
+  <main class="app-vue-element">
+    <h1>Hello World! Book collection system</h1>
+    <RouterView />
+  </main>
 </template>

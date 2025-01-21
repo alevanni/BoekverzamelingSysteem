@@ -1,22 +1,28 @@
 <script setup lang="ts">
-//import { deleteReview } from "../store";
+import { deleteReview } from "../store";
 import { Review } from "../../types";
-import { fetchAuthors, getAuthorById } from "../../authors/store";
 import { router } from "../../../router/index";
-import axios from "axios";
-import { Ref, ref } from "vue";
+
 defineProps<{ review: Review }>();
 
+const removeReview = async (review: Review) => {
+    await deleteReview(review);
+
+    router.go(0);
+
+}
 
 </script>
 
 <template>
 
-    <h2 class="title">{{ review.vote }}</h2>
+    <h2 class=" badge title" :class="[(review.vote < 6) ? 'bad' : ((review.vote < 8) ? 'meh' : 'good')]">{{ review.vote
+        }}</h2>
 
 
     <p>
         {{ review.body }}
     </p>
-
+    <button class="delete" @click="removeReview(review)"> Delete review </button>
+    <RouterLink class="edit" :to="{ name: 'editReview', params: { id: review.id } }">Edit Review</RouterLink>
 </template>
