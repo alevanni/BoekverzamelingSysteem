@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::with('reviews', 'author')->orderBy('created_at', 'desc')->get();
+        $books = Book::orderBy('created_at', 'desc')->get();
         return BookResource::collection($books);
     }
 
@@ -35,7 +35,7 @@ class BookController extends Controller
         $validated = $request->validated();
         Book::create($validated);
 
-        $books = Book::with('reviews')->orderBy('created_at', 'desc')->get();
+        $books = Book::orderBy('created_at', 'desc')->get();
 
         return BookResource::collection($books);
     }
@@ -65,7 +65,7 @@ class BookController extends Controller
 
         $book->update($validated);
 
-        $books = Book::with('reviews')->orderBy('created_at', 'desc')->get();
+        $books = Book::orderBy('created_at', 'desc')->get();
 
         return BookResource::collection($books);
     }

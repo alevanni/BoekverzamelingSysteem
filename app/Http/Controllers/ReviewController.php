@@ -36,9 +36,9 @@ class ReviewController extends Controller
     {
         $validated = $request->validated();
 
-        $review = Review::create($validated);
+        Review::create($validated);
 
-        $reviews = Review::all(); //$review->book->reviews;
+        $reviews = Review::all();
 
         return ReviewResource::collection($reviews);
     }
@@ -68,6 +68,7 @@ class ReviewController extends Controller
 
         $review->update($validated);
         $reviews = Review::all();
+
         return ReviewResource::collection($reviews);
     }
 

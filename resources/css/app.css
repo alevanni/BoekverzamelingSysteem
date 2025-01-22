@@ -17,15 +17,16 @@ a {
     background-color: ghostwhite;
     margin: 10px;
 }
-.app-vue-element h1{
+
+.app-vue-element h1 {
     font-size: 40px;
-    text-align:  center; 
+    text-align: center;
 }
 
 .app-nav {
     padding: 20px;
     border: 1px, solid, black;
-    text-align:  center; 
+    text-align: center;
     font-size: 20px;
 }
 
@@ -33,47 +34,54 @@ a {
 /* called in the singular components (overview, edit, etc..). Their content varies from page to page.*/
 .component-vue-element {
     background-color: ghostwhite;
-    
+
 }
+
 .component-vue-element h1 {
     font-size: 30px;
-    text-align:  center; 
+    text-align: center;
     margin: 20px;
 }
 
-input, select {
+input,
+select,
+textarea {
     border: 1px solid black;
 }
+
 .table {
-  background-color: ghostwhite;
-  
+    background-color: ghostwhite;
+
 }
+
 .card {
     padding: 20px;
     display: inline-block;
     vertical-align: middle;
     width: 25%;
-    margin-left:6%;
-    text-align:  center;
+    margin-left: 6%;
+    text-align: center;
     border: 1px solid black;
     border-radius: 5px;
     background-color: ghostwhite;
-    
+
 }
 
 .card p {
-  line-height: 1.5;
-  text-wrap: wrap;
-  
+    line-height: 1.5;
+    text-wrap: wrap;
+
 }
 
-.delete, .edit {
+.delete,
+.edit {
     margin-top: 20px;
-} 
+}
+
 .title {
     line-height: 1.5;
-    
-    
+
+
     font-size: larger;
     text-align: center;
     font-weight: bolder;
@@ -81,21 +89,22 @@ input, select {
 
 .author {
     line-height: 1.5;
-    
+
     text-align: center;
-    
+
     font-weight: bold;
 }
 
 .review-card {
     padding: 20px;
-    
+
 }
 
-.title::first-letter  {
+.title {
     text-transform: capitalize;
 }
-.author::first-letter {
+
+.author {
     text-transform: capitalize;
 }
 
@@ -103,7 +112,7 @@ input, select {
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
-    width:fit-content;
+    width: fit-content;
     margin: auto;
 }
 
@@ -137,8 +146,9 @@ input[type=submit]:hover {
 
 .app-form {
     width: 30%;
-    margin:auto;
+    margin: auto;
 }
+
 .errors {
     padding: 20px;
 }
@@ -155,10 +165,11 @@ input[type=submit]:hover {
     border-radius: 4px;
 }
 
-.delete:hover{
+.delete:hover {
     background-color: red;
-    
+
 }
+
 .book {
     background-color: ghostwhite;
     padding: 20px;

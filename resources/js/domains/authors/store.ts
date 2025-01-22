@@ -18,7 +18,7 @@ export const getAuthorById = (id: number) =>
     computed(
         () =>
             authors.value.find((author) => author.id == id) ?? {
-                name: "Anonymous",
+                name: "anonymous",
                 id: 1,
             }
     );
@@ -29,6 +29,7 @@ export const addAuthor = async (newAuthor: any) => {
     //axios post request here
     const { data } = await axios.post("/api/authors/create", newAuthor);
     if (!data) return;
+
     authors.value = data;
 };
 
@@ -36,6 +37,7 @@ export const deleteAuthor = async (author: Author) => {
     //axios delete request here
     const { data } = await axios.delete(`/api/authors/${author.id}`);
     if (!data) return;
+
     authors.value = data;
 };
 

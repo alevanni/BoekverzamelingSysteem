@@ -1,13 +1,13 @@
 import { ref, computed } from "vue";
 import axios from "axios";
-import { Book, Review } from "../types";
+import { Review } from "../types";
 
 const reviews = ref<Review[]>([]);
 
 export const fetchReviews = async () => {
     const { data } = await axios.get("/api/reviews");
     if (!data) return;
-    //console.log(data);
+
     reviews.value = data;
 };
 
@@ -27,6 +27,7 @@ export const addReview = async (review: any) => {
     // axios post request here
     const { data } = await axios.post("/api/reviews/create/", review);
     if (!data) return;
+
     reviews.value = data;
 };
 
@@ -34,7 +35,7 @@ export const deleteReview = async (review: Review) => {
     // axios delete request here
     const { data } = await axios.delete(`/api/reviews/${review.id}`);
     if (!data) return;
-    //console.log(data);
+
     reviews.value = data;
 };
 
@@ -45,6 +46,6 @@ export const updateReview = async (reviewToEdit: Review) => {
         reviewToEdit
     );
     if (!data) return;
-    //console.log(data);
+
     reviews.value = data;
 };

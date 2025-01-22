@@ -1,12 +1,8 @@
+- where should storeModuleFactory be?
+- should all the index files be ts?
+- tsconfig json is complaining
+- should the state be an array?
+- i suppose i still have to create the routes one by one
 - should i put the delete and edit buttons also in the book page?
-- it does not capitalize the first letter in the book overview, why??
 - should i make an overview of the books depending of the authors?
-- why some events can be written like this @book-submit instead of the real name??
-----------------------------------------------------------------------------------
-- if I put fetch authors in the form, it gives me errors from editbok but not from createbook. it adds part of the url to the request url. Why?
-
-
-1) the pages for authors and reviews should stay in another domain? With another store?
-2) when i create a new book, should i be able only select existing authors?
-3) i had to add a line into the tsconfig.json. How much of what happens there do I have to know?
-4) how much of the bash commands i used to create a new project do i have to know?
+- why some events can be written like this @book-submit instead of the real name?
