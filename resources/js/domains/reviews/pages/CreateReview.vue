@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { fetchBooks, getBookById } from '../../books/store';
-import { router } from '../../../router';
+import { router, goToRoute } from "../../../services/router/index";
 import { fetchAuthors, getAuthorById } from '../../authors/store';
 import { addReview } from '../../reviews/store';
 import ReviewForm from '../components/ReviewForm.vue';
@@ -15,7 +15,7 @@ const submitReview = async (review: any) => {
 
     await addReview(review);
 
-    router.push(`/viewbook/${review.book_id}`);
+    goToRoute("viewBook", review.book_id);
 
 
 }

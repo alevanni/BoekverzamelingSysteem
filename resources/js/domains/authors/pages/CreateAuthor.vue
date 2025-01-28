@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, Ref } from 'vue';
-import { router } from '../../../router';
+import { router, goToRoute } from "../../../services/router/index";
 import { addAuthor } from '../store';
 import AuthorForm from '../components/AuthorForm.vue';
 const newAuthor = ref({ name: "" });
 
 const submitAuthor = async (author: any) => {
     await addAuthor(author);
-    router.push('/authors');
+    goToRoute("authors");
 }
 </script>
 

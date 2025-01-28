@@ -1,11 +1,18 @@
 import { Component } from "vue";
 import { createWebHistory, createRouter, RouteRecordRaw } from "vue-router";
+import { bookRoutes } from "../../domains/books/routes";
+import { authorRoutes } from "../../domains/authors/route";
+import { reviewRoutes } from "../../domains/reviews/routes";
 
-export const createRoute = (name: string, path: string, component: Component) => {
+export const createRoute = (
+    name: string,
+    path: string,
+    component: Component
+) => {
     return {
         name,
         path,
-        component
+        component,
     };
 };
 
@@ -29,8 +36,10 @@ export const goToRoute = (name: string, id?: number) => {
 
 const router = createRouter({
     history: createWebHistory(),
-    routes: []
+    routes: [],
 });
 
+addRoutes(bookRoutes);
+addRoutes(authorRoutes);
+addRoutes(reviewRoutes);
 export { router };
-

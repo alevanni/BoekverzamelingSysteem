@@ -2,14 +2,14 @@
 import { deleteBook } from "../store";
 import { Book } from "../../types";
 import { getAuthorById } from "../../authors/store";
-import { router } from "../../../router/index";
+import { router, goToRoute } from "../../../services/router/index";
 
 const props = defineProps<{ book: Book }>();
 
 const removeBook = async (book: Book) => {
-    await deleteBook(book);
-    console.log("success");
-    router.go(0);
+    await deleteBook(book.id);
+
+    goToRoute("books");
 };
 </script>
 
@@ -17,7 +17,7 @@ const removeBook = async (book: Book) => {
     <RouterLink :to="{ name: 'viewBook', params: { id: book.id } }">
         <h2 class="title">{{ book.title }}</h2>
     </RouterLink>
-    <h2 class="author">by: <span >{{ getAuthorById(book.author_id).value.name }} </span></h2>
+    <h2 class="author">by: <span>{{ getAuthorById(book.author_id).value.name }} </span></h2>
     <p>
         {{ book.plot }}
     </p>

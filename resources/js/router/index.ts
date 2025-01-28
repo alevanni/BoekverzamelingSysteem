@@ -1,3 +1,5 @@
+/*
+
 import { createWebHistory, createRouter } from "vue-router";
 import BooksOverview from "../domains/books/pages/BooksOverview.vue";
 import EditBook from "../domains/books/pages/EditBook.vue";
@@ -27,3 +29,4 @@ const router = createRouter({
 });
 
 export { router };
+*/

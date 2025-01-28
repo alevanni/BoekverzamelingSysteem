@@ -2,6 +2,25 @@ import { ref, reactive, computed } from "vue";
 import axios from "axios";
 import { Book, Author } from "../types";
 
+import { storeModuleFactory } from "../../storeModuleFactory";
+const authorStore = storeModuleFactory("authors");
+
+authorStore.actions.getAll();
+
+const authors = authorStore.getters.all;
+
+export const getAllAuthors = authorStore.getters.all;
+
+export const getAuthorById = authorStore.getters.byId;
+
+export const addAuthor = authorStore.actions.create;
+
+export const deleteAuthor = authorStore.actions.deleteItemById;
+
+export const updateAuthor = authorStore.actions.updateItem;
+
+export const fetchAuthors = () => {};
+/*
 const authors = ref<Author[]>([]);
 
 export const fetchAuthors = async () => {
@@ -52,3 +71,4 @@ export const updateAuthor = async (authorToEdit: Author) => {
 
     authors.value = data;
 };
+*/

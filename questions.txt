@@ -1,3 +1,6 @@
+if i only update with the generic setter, it does not refresh nor push. why?
+
+
 - where should storeModuleFactory be?
 - should all the index files be ts?
 - tsconfig json is complaining

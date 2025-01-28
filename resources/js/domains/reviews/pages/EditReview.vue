@@ -2,7 +2,7 @@
 import { useRoute } from 'vue-router';
 import { fetchBooks } from '../../books/store';
 import { Review } from '../../types';
-import { router } from '../../../router';
+import { router, goToRoute } from "../../../services/router/index";
 import { fetchAuthors } from '../../authors/store';
 import { fetchReviews, getReviewById, updateReview } from '../../reviews/store';
 import ReviewForm from '../components/ReviewForm.vue';
@@ -15,7 +15,7 @@ const reviewToEdit = getReviewById(+useRoute().params.id);
 const editReview = async (review: Review) => {
 
     await updateReview(review);
-    router.push(`/viewbook/${review.book_id}`);
+    goToRoute("viewBook", review.book_id);
 
 
 }

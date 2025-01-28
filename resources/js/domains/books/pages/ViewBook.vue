@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import ReviewTable from '../../reviews/components/ReviewTable.vue';
-import { fetchBooks, getBookById } from '../store';
+import { /*fetchBooks,*/ getBookById } from '../store';
 import { fetchAuthors, getAuthorById } from '../../authors/store';
 import { fetchReviews, getReviewsByBookId } from '../../reviews/store';
-fetchBooks();
+//fetchBooks();
 fetchAuthors();
 fetchReviews();
 

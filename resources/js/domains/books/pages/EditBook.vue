@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import BookForm from '../components/BookForm.vue';
-import { fetchBooks, getBookById, updateBook } from '../store';
+import { /*fetchBooks,*/ getBookById, updateBook } from '../store';
 import { Book } from '../../types';
-import { router } from '../../../router';
+import { router, goToRoute } from "../../../services/router/index";
 import { fetchAuthors } from '../../authors/store';
 
-fetchBooks();
+//fetchBooks();
 fetchAuthors();
 
 const bookToEdit = getBookById(+useRoute().params.id);
@@ -15,7 +15,7 @@ const bookToEdit = getBookById(+useRoute().params.id);
 const editBook = async (book: Book) => {
 
     await updateBook(book);
-    router.push('/');
+    goToRoute("books");
 
 }
 </script>
