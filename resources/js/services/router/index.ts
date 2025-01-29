@@ -1,8 +1,5 @@
 import { Component } from "vue";
 import { createWebHistory, createRouter, RouteRecordRaw } from "vue-router";
-import { bookRoutes } from "../../domains/books/routes";
-import { authorRoutes } from "../../domains/authors/route";
-import { reviewRoutes } from "../../domains/reviews/routes";
 
 export const createRoute = (
     name: string,
@@ -25,21 +22,17 @@ export const addRoutes = (routes: RouteRecordRaw[]) => {
 export const goToRoute = (name: string, id?: number) => {
     const route: { name: string; params?: { id: number } } = { name };
 
-    // Voeg de 'id' toe aan de 'params' als deze aanwezig is
+    // Add the 'id' to the 'params' if it is present
+
     if (id) {
         route.params = { id };
     }
 
-    // Navigeer naar de opgegeven route
+    // Navigate to the specified route
     router.push(route);
 };
 
-const router = createRouter({
+export const router = createRouter({
     history: createWebHistory(),
     routes: [],
 });
-
-addRoutes(bookRoutes);
-addRoutes(authorRoutes);
-addRoutes(reviewRoutes);
-export { router };

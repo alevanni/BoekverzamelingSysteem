@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { Author } from '../../types';
-import { fetchAuthors, getAuthorById, deleteAuthor } from '../store';
-import { router, goToRoute } from "../../../services/router/index";
+import { deleteAuthor } from '../store';
+import { goToRoute } from "../../../services/router/index";
 
 const props = defineProps<{ author: Author }>();
 
 const removeAuthor = async (author: Author) => {
 
-    await deleteAuthor(author);
-    console.log('success');
+    await deleteAuthor(author.id);
+    
     goToRoute("authors");
 
 }

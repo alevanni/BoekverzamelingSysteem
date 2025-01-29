@@ -1,14 +1,15 @@
 import { computed, Ref, ref } from "vue";
-import { Author, Book, Review } from "./domains/types";
 import {
     deleteRequest,
     getRequest,
     postRequest,
     updateRequest,
-} from "./services/http";
+} from "./services/http/index";
 
-export const storeModuleFactory = (moduleName: any) => {
-    const state: Ref<Author[] | Book[] | Review[]> = ref([]);
+type State<T extends { id: number }> = Ref<{ [id: number]: Readonly<T> }>;
+
+export const storeModuleFactory = <T extends { id: number }>(moduleName: any) => {
+    const state: State<T> = ref({});
 
     const getters = {
         // Met "all" kunnen we de gegevens als computed value uit de state halen,
@@ -31,7 +32,7 @@ export const storeModuleFactory = (moduleName: any) => {
             state.value[id] = item;
         },
         deleteById: (id: number) => {
-            state.value.splice(id, 1);
+            delete state.value[id];
         },
     };
 
@@ -46,7 +47,7 @@ export const storeModuleFactory = (moduleName: any) => {
             // Axios api post request
             const { data } = await postRequest(moduleName, newData);
             if (!data) return;
-            setters.setById(data[0].id, data[0]);
+            setters.setAll(data);
         },
         deleteItemById: async (id: number) => {
             // Axios api delete request

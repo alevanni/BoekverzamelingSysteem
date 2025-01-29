@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { deleteReview } from "../store";
 import { Review } from "../../types";
-import { router, goToRoute } from "../../../services/router/index";
+import { goToRoute } from "../../../services/router/index";
+
 defineProps<{ review: Review }>();
 
 const removeReview = async (review: Review) => {
-    await deleteReview(review);
+    await deleteReview(review.id);
 
     goToRoute("viewBook", review.book_id);
 

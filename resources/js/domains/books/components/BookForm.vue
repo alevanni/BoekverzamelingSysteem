@@ -18,7 +18,7 @@ const submitForm = () => {
                 <td><label for="author">Author</label></td>
                 <td>
                     <select v-model="bookCopy.author_id" id="author">
-                        <option v-for="author in getAllAuthors()" :value="author.id">
+                        <option v-for="author in getAllAuthors" :value="author.id">
                             {{ author.name }}
                         </option>
                     </select>

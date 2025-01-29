@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { addBook } from '../store';
-import { router, goToRoute } from "../../../services/router/index";
+import { goToRoute } from "../../../services/router/index";
 import BookForm from '../components/BookForm.vue';
-import { fetchAuthors } from '../../authors/store';
-const newBook = ref({ author_id: "", title: "", plot: "" });
 
-fetchAuthors();
+const newBook = ref({ author_id: "", title: "", plot: "" });
 
 const submitBook = async (book: any) => {
 

@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import BookForm from '../components/BookForm.vue';
-import { /*fetchBooks,*/ getBookById, updateBook } from '../store';
+import { getBookById, updateBook } from '../store';
 import { Book } from '../../types';
-import { router, goToRoute } from "../../../services/router/index";
-import { fetchAuthors } from '../../authors/store';
-
-//fetchBooks();
-fetchAuthors();
+import { goToRoute } from "../../../services/router/index";
 
 const bookToEdit = getBookById(+useRoute().params.id);
 

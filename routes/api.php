@@ -17,8 +17,8 @@ Route::get('reviews', [ReviewController::class, 'index']);
 
 // POST REQUESTS
 Route::post('books', [BookController::class, 'store']);
-Route::post('authors/create', [AuthorController::class, 'store']);
-Route::post('reviews/create', [ReviewController::class, 'store']);
+Route::post('authors', [AuthorController::class, 'store']);
+Route::post('reviews', [ReviewController::class, 'store']);
 
 
 // DELETE REQUESTS

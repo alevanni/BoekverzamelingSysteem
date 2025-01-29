@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, Ref } from 'vue';
-import { router, goToRoute } from "../../../services/router/index";
+import { ref } from 'vue';
+import { goToRoute } from "../../../services/router/index";
 import { addAuthor } from '../store';
 import AuthorForm from '../components/AuthorForm.vue';
 const newAuthor = ref({ name: "" });

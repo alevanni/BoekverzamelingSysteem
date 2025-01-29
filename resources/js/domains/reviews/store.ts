@@ -1,51 +1,21 @@
-import { ref, computed } from "vue";
-import axios from "axios";
+import { computed } from "vue";
 import { Review } from "../types";
 
-const reviews = ref<Review[]>([]);
+import { storeModuleFactory } from "../../storeModuleFactory";
+export const reviewStore = storeModuleFactory<Review>("reviews");
 
-export const fetchReviews = async () => {
-    const { data } = await axios.get("/api/reviews");
-    if (!data) return;
+reviewStore.actions.getAll();
 
-    reviews.value = data;
-};
+export const getAllReviews = reviewStore.getters.all;
 
-// GETTERS
+export const getReviewById = reviewStore.getters.byId;
 
-export const getAllReviews = () => reviews.value;
+export const addReview = reviewStore.actions.create;
 
-export const getReviewById = (id: number) =>
-    computed(() => reviews.value.find((review) => review.id == id));
+export const deleteReview = reviewStore.actions.deleteItemById;
+
+export const updateReview = reviewStore.actions.updateItem;
 
 export const getReviewsByBookId = (id: number) =>
-    computed(() => reviews.value.filter((review) => review.book_id == id));
+    computed(() => getAllReviews.value.filter((review) => review.book_id == id));
 
-// ACTIONS
-
-export const addReview = async (review: any) => {
-    // axios post request here
-    const { data } = await axios.post("/api/reviews/create/", review);
-    if (!data) return;
-
-    reviews.value = data;
-};
-
-export const deleteReview = async (review: Review) => {
-    // axios delete request here
-    const { data } = await axios.delete(`/api/reviews/${review.id}`);
-    if (!data) return;
-
-    reviews.value = data;
-};
-
-export const updateReview = async (reviewToEdit: Review) => {
-    // axios put request here
-    const { data } = await axios.put(
-        `/api/reviews/${reviewToEdit.id}`,
-        reviewToEdit
-    );
-    if (!data) return;
-
-    reviews.value = data;
-};

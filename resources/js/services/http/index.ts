@@ -1,14 +1,14 @@
 import axios from "axios";
 
-// We gebruiken een "baseURL" zodat we niet overal /api voor hoeven te zetten
+// We use a "baseURL" so we don't have to put /api in front of everything
 const baseURL = "/api";
 
 const http = axios.create({
     baseURL,
     headers: {
-        // Met deze header geef je aan welk soort content je verwacht terug te krijgen van de server.
+        // With this header you indicate what type of content you expect to get back from the server.
         Accept: "application/json",
-        // Deze header geeft aan in welk formaat de body van het verzoek is verzonden naar de server.
+        // This header indicates in which format the body of the request was sent to the server.
         "Content-Type": "application/json",
     },
 });

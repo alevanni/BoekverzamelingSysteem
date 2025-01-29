@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { fetchBooks } from '../../books/store';
 import { Review } from '../../types';
-import { router, goToRoute } from "../../../services/router/index";
-import { fetchAuthors } from '../../authors/store';
-import { fetchReviews, getReviewById, updateReview } from '../../reviews/store';
+import { goToRoute } from "../../../services/router/index";
+import { getReviewById, updateReview } from '../../reviews/store';
 import ReviewForm from '../components/ReviewForm.vue';
-fetchBooks();
-fetchAuthors();
-fetchReviews();
 
 const reviewToEdit = getReviewById(+useRoute().params.id);
 

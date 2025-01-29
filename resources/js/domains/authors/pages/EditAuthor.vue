@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { Author } from '../../types';
-import { router, goToRoute } from "../../../services/router/index";
+import { goToRoute } from "../../../services/router/index";
 import AuthorForm from '../components/AuthorForm.vue';
-import { fetchAuthors, getAuthorById, updateAuthor } from '../store';
-
-fetchAuthors();
+import { getAuthorById, updateAuthor } from '../store';
 
 const authorToEdit = getAuthorById(+useRoute().params.id);
 
