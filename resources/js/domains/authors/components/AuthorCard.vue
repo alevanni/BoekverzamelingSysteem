@@ -8,7 +8,7 @@ const props = defineProps<{ author: Author }>();
 const removeAuthor = async (author: Author) => {
 
     await deleteAuthor(author.id);
-    
+
     goToRoute("authors");
 
 }

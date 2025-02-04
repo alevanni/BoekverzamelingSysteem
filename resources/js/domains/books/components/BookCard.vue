@@ -17,7 +17,7 @@ const removeBook = async (book: Book) => {
     <RouterLink :to="{ name: 'viewBook', params: { id: book.id } }">
         <h2 class="title">{{ book.title }}</h2>
     </RouterLink>
-    <h2 class="author">by: <span>{{ getAuthorById(book.author_id).value?.name }} </span></h2>
+    <h2 class="author">by: <span>{{ getAuthorById(book.author_id).value?.name ?? 'Anonymous' }} </span></h2>
     <p>
         {{ book.plot }}
     </p>
